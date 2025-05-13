@@ -66,7 +66,8 @@
         "
       >
         <div class="contact-info">
-          <strong>Ustin M. Vaskin</strong> <span id="current-date"></span>
+          <strong>Ustin M. Vaskin</strong>
+
           <br />
           B.B.M · PG.Dip · M.C.S <br /><br />
 
@@ -264,6 +265,12 @@
 
     <hr />
 
+    <span id="current-date"></span>
+    <section>
+      <p id="device-info" style="font-size: 10px">
+        Loading device information...
+      </p>
+    </section>
     <footer>
       © <span id="current-year"></span> Ustin M. Vaskin. All rights reserved.
     </footer>
@@ -276,5 +283,24 @@
 </script>
 
 <script>
+  document.getElementById("current-date").textContent = new Date();
+</script>
+
+<script>
+  // Function to detect the device type, OS, and phone model
+  function getDeviceInfo() {
+    const userAgent = navigator.userAgent;
+    const width = window.innerWidth;
+    let deviceInfo = " ";
+
+    deviceInfo += userAgent;
+
+    return deviceInfo;
+  }
+
+  // Display the device info
+  document.getElementById("device-info").textContent = getDeviceInfo();
+
+  // Set the current date
   document.getElementById("current-date").textContent = new Date();
 </script>
