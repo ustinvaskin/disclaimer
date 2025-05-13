@@ -51,6 +51,11 @@
         padding-top: 1rem;
         text-align: center;
       }
+      #device-info {
+        font-weight: bold;
+        color: #333;
+        margin-top: 1rem;
+      }
     </style>
   </head>
   <body>
@@ -263,6 +268,32 @@
       </p>
     </section>
 
+    <section>
+      <h2>隐私和法律声明 (Chinese)</h2>
+      <div class="lang">中文</div>
+      <p>
+        本电子邮件及其附带的任何文件均为机密，仅供指定的个人或实体使用。此通信可能包含依法保护的信息，包括但不限于律师-客户特权、专业保密性或其他法律保护。未经授权的审查、使用、披露或分发是严格禁止的，并可能是非法的。
+      </p>
+      <p>
+        如果您不是预定的收件人，请立即通过回复此消息通知发件人。您被要求删除此电子邮件及任何附件，且不得阅读、复制、分发或保存它们。
+      </p>
+      <p>
+        本通信可能包含根据适用的数据保护和隐私法律（包括欧盟GDPR（2016/679）及其他国家或地区隐私法规）保护的个人数据。此类信息仅为其预定目的而共享，除非法律允许，否则不得进一步处理、保存或披露。
+      </p>
+      <p>
+        发件人不承担通过电子邮件传播的病毒、恶意软件或其他有害成分所造成的任何损害责任。接收人有责任扫描此邮件及任何附件以检查安全风险。
+      </p>
+      <p>
+        本通信中的任何内容不得解释为具有法律约束力的协议或提议，除非明确表示并在正式书面合同中确认。
+      </p>
+      <p>
+        本邮件所表达的观点和意见仅代表发件人本人，除非明确声明，不一定代表任何相关个人或组织的观点。
+      </p>
+      <p>
+        本免责声明受中国法律管辖。任何因本通信引起的争议将提交中国法院专属管辖。
+      </p>
+    </section>
+
     <hr />
 
     <span id="current-date"></span>
@@ -275,9 +306,8 @@
       © <span id="current-year"></span> Ustin M. Vaskin. All rights reserved.
     </footer>
   </body>
-</html>
 
-<script>
+  <script>
   document.getElementById("current-year").textContent =
     new Date().getFullYear();
 </script>
@@ -304,3 +334,6 @@
   // Set the current date
   document.getElementById("current-date").textContent = new Date();
 </script>
+</html>
+
+
