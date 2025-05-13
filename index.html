@@ -66,7 +66,8 @@
         "
       >
         <div class="contact-info">
-          <strong>Ustin M. Vaskin</strong><br />
+          <strong>Ustin M. Vaskin</strong> <span id="current-date"></span>
+          <br />
           B.B.M · PG.Dip · M.C.S <br /><br />
 
           <div class="contact-line" style="margin-bottom: 0.25rem">
@@ -263,6 +264,17 @@
 
     <hr />
 
-    <footer>© 2025 Ustin M. Vaskin. All rights reserved.</footer>
+    <footer>
+      © <span id="current-year"></span> Ustin M. Vaskin. All rights reserved.
+    </footer>
   </body>
 </html>
+
+<script>
+  document.getElementById("current-year").textContent =
+    new Date().getFullYear();
+</script>
+
+<script>
+  document.getElementById("current-date").textContent = new Date();
+</script>
