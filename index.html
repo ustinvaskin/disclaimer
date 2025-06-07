@@ -3,10 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta
-			http-equiv="Content-Language"
-			content="en, ar, zh, es, fr, de, ru, no"
-		/>
+		<meta http-equiv="Content-Language" content="en, ar, zh, es, fr, de, ru, no" />
 		<title>Email Disclaimer – Ustin M. Vaskin</title>
 		<style>
 			:root {
@@ -42,11 +39,9 @@
 				background-color: var(--bg);
 				color: var(--text);
 				line-height: 1.8;
-				margin: 0;
+				margin: 0 auto;
 				padding: 2rem 1.25rem;
 				max-width: 900px;
-				margin-left: auto;
-				margin-right: auto;
 				font-size: 1rem;
 			}
 
@@ -142,9 +137,7 @@
 				background-color: var(--toggle-bg);
 				padding: 0.4rem 0.75rem;
 				border-radius: var(--radius);
-				transition:
-					background-color 0.2s ease,
-					color 0.2s ease;
+				transition: background-color 0.2s ease, color 0.2s ease;
 				font-weight: 500;
 			}
 
@@ -206,25 +199,26 @@
 		</style>
 	</head>
 	<body>
-		<nav aria-label="Language navigation">
-			<ul>
-				<li><a href="#disclaimer-en">English</a></li>
-				<li><a href="#disclaimer-no">Norsk</a></li>
-				<li><a href="#disclaimer-ru">Русский</a></li>
-				<li><a href="#disclaimer-de">Deutsch</a></li>
-				<li><a href="#disclaimer-fr">Français</a></li>
-				<li><a href="#disclaimer-zh">中文</a></li>
-				<li><a href="#disclaimer-ar">العربية</a></li>
-				<li><a href="#disclaimer-es">Español</a></li>
-			</ul>
-			<button
-				class="theme-toggle"
-				onclick="toggleTheme()"
-				aria-label="Toggle dark or light mode"
-			>
-				Toggle Theme
-			</button>
-		</nav>
+		<main>
+			<nav aria-label="Language navigation">
+				<ul>
+					<li><a href="#disclaimer-en">English</a></li>
+					<li><a href="#disclaimer-no">Norsk</a></li>
+					<li><a href="#disclaimer-ru">Русский</a></li>
+					<li><a href="#disclaimer-de">Deutsch</a></li>
+					<li><a href="#disclaimer-fr">Français</a></li>
+					<li><a href="#disclaimer-zh">中文</a></li>
+					<li><a href="#disclaimer-ar">العربية</a></li>
+					<li><a href="#disclaimer-es">Español</a></li>
+				</ul>
+				<button
+					class="theme-toggle"
+					onclick="toggleTheme()"
+					aria-label="Toggle dark or light mode"
+				>
+					Toggle Theme
+				</button>
+			</nav>
 
 		<section id="disclaimer-en">
 			<h2>Confidentiality and Legal Notice</h2>
@@ -709,42 +703,24 @@
 				new Date().getFullYear();
 		</script>
 	</body>
+		<script>
+			// Set current year once
+			document.getElementById("current-year").textContent = new Date().getFullYear();
 
-	<script>
-		document.getElementById("current-year").textContent =
-			new Date().getFullYear();
-	</script>
+			// Set current date
+			document.getElementById("current-date").textContent = new Date().toLocaleString();
 
-	<script>
-		document.getElementById("current-date").textContent = new Date();
-	</script>
+			// Device info
+			function getDeviceInfo() {
+				return navigator.userAgent;
+			}
+			document.getElementById("device-info").textContent = getDeviceInfo();
 
-	<script>
-		// Function to detect the device type, OS, and phone model
-		function getDeviceInfo() {
-			const userAgent = navigator.userAgent;
-			const width = window.innerWidth;
-			let deviceInfo = " ";
-
-			deviceInfo += userAgent;
-
-			return deviceInfo;
-		}
-
-		// Display the device info
-		document.getElementById("device-info").textContent = getDeviceInfo();
-
-		// Set the current date
-		document.getElementById("current-date").textContent = new Date();
-	</script>
-	<script>
-		function toggleTheme() {
-			const html = document.documentElement;
-			const currentTheme = html.getAttribute("data-theme");
-			html.setAttribute(
-				"data-theme",
-				currentTheme === "dark" ? "light" : "dark",
-			);
-		}
-	</script>
+			// Theme toggle
+			function toggleTheme() {
+				const html = document.documentElement;
+				const currentTheme = html.getAttribute("data-theme");
+				html.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+			}
+		</script>
 </html>
