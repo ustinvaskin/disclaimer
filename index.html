@@ -7,7 +7,6 @@
 			name="description"
 			content="Email disclaimer in multiple languages for Ustin M. Vaskin, covering legal, privacy, and GDPR compliance."
 		/>
-
 		<title>Email Disclaimer – Ustin M. Vaskin</title>
 		<style>
 			:root {
@@ -108,11 +107,14 @@
 				padding: 1rem;
 				z-index: 1000;
 				border-bottom: 1px solid var(--border);
-				margin-bottom: 2rem;
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				flex-wrap: wrap;
+			}
+			.nav-start {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
 			}
 			nav ul {
 				list-style: none;
@@ -141,20 +143,15 @@
 			}
 			.theme-toggle {
 				cursor: pointer;
-				background-color: var(--toggle-bg);
-				border: 1px solid var(--border);
-				border-radius: var(--radius);
-				padding: 0.4rem 0.75rem;
-				font-size: 0.9rem;
+				background: none;
+				border: none;
+				font-size: 1.5rem;
 				color: var(--text);
-				margin-left: auto;
-				transition: background-color 0.2s ease;
+				transition: color 0.2s ease;
 			}
-			.theme-toggle:focus,
-			.theme-toggle:hover {
-				background-color: var(--primary);
-				color: #fff;
-				outline: none;
+			.theme-toggle:hover,
+			.theme-toggle:focus {
+				color: var(--primary);
 			}
 			.nav-toggle {
 				display: none;
@@ -178,7 +175,7 @@
 					font-size: 1.125rem;
 				}
 				nav {
-					flex-direction: column;
+					flex-direction: row;
 					align-items: flex-start;
 				}
 				.nav-toggle {
@@ -194,44 +191,42 @@
 				nav ul.open {
 					display: flex;
 				}
-				.theme-toggle {
-					margin-top: 1rem;
-					margin-left: 0;
-				}
 			}
 		</style>
 	</head>
 	<body>
 		<main>
 			<nav aria-label="Language navigation">
-				<!-- Hamburger Button -->
-				<button
-					class="nav-toggle"
-					aria-label="Toggle navigation"
-					onclick="toggleNav()"
-				>
-					☰
-				</button>
+				<div class="nav-start">
+					<!-- Hamburger Button -->
+					<button
+						class="nav-toggle"
+						aria-label="Toggle navigation"
+						onclick="toggleNav()"
+					>
+						☰
+					</button>
 
-				<!-- Navigation Links -->
-				<ul id="nav-links">
-					<li><a href="#disclaimer-en">English</a></li>
-					<li><a href="#disclaimer-no">Norsk</a></li>
-					<li><a href="#disclaimer-ru">Русский</a></li>
-					<li><a href="#disclaimer-de">Deutsch</a></li>
-					<li><a href="#disclaimer-fr">Français</a></li>
-					<li><a href="#disclaimer-zh">中文</a></li>
-					<li><a href="#disclaimer-ar">العربية</a></li>
-					<li><a href="#disclaimer-es">Español</a></li>
-				</ul>
+					<!-- Navigation Links -->
+					<ul id="nav-links">
+						<li><a href="#disclaimer-en">English</a></li>
+						<li><a href="#disclaimer-no">Norsk</a></li>
+						<li><a href="#disclaimer-ru">Русский</a></li>
+						<li><a href="#disclaimer-de">Deutsch</a></li>
+						<li><a href="#disclaimer-fr">Français</a></li>
+						<li><a href="#disclaimer-zh">中文</a></li>
+						<li><a href="#disclaimer-ar">العربية</a></li>
+						<li><a href="#disclaimer-es">Español</a></li>
+					</ul>
+				</div>
 
-				<!-- Theme Toggle -->
+				<!-- Theme Toggle Button with Icon -->
 				<button
 					class="theme-toggle"
 					onclick="toggleTheme()"
 					aria-label="Toggle dark or light mode"
 				>
-					Toggle Theme
+					<span id="theme-icon">🌞</span>
 				</button>
 			</nav>
 			<section style="text-align: center; margin-top: 3rem; font-size: 0.95rem">
@@ -736,35 +731,35 @@
 		</main>
 
 		<script>
+			// Set year and date
 			document.getElementById("current-year").textContent =
 				new Date().getFullYear();
+			document.getElementById("current-date").textContent =
+				new Date().toLocaleString();
+			document.getElementById("device-info").textContent = navigator.userAgent;
+
+			function toggleTheme() {
+				const html = document.documentElement;
+				const currentTheme = html.getAttribute("data-theme");
+				const newTheme = currentTheme === "dark" ? "light" : "dark";
+				html.setAttribute("data-theme", newTheme);
+
+				const icon = document.getElementById("theme-icon");
+				icon.textContent = newTheme === "dark" ? "🌙" : "🌞";
+			}
+
+			function toggleNav() {
+				document.getElementById("nav-links").classList.toggle("open");
+			}
+
+			// Apply user's system theme preference
+			if (
+				window.matchMedia &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches
+			) {
+				document.documentElement.setAttribute("data-theme", "dark");
+				document.getElementById("theme-icon").textContent = "🌙";
+			}
 		</script>
 	</body>
-	<script>
-		document.getElementById("current-year").textContent =
-			new Date().getFullYear();
-		document.getElementById("current-date").textContent =
-			new Date().toLocaleString();
-		document.getElementById("device-info").textContent = navigator.userAgent;
-
-		function toggleTheme() {
-			const html = document.documentElement;
-			const currentTheme = html.getAttribute("data-theme");
-			html.setAttribute(
-				"data-theme",
-				currentTheme === "dark" ? "light" : "dark",
-			);
-		}
-
-		function toggleNav() {
-			document.getElementById("nav-links").classList.toggle("open");
-		}
-
-		if (
-			window.matchMedia &&
-			window.matchMedia("(prefers-color-scheme: dark)").matches
-		) {
-			document.documentElement.setAttribute("data-theme", "dark");
-		}
-	</script>
 </html>
