@@ -1,255 +1,267 @@
 <!doctype html>
 <html lang="en" data-theme="light">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Email Disclaimer – Ustin M. Vaskin</title>
-		<style>
-			:root {
-				--font-family: "Inter", "Roboto", "Helvetica Neue", sans-serif;
-				--primary: #1976d2;
-				--primary-dark: #0d47a1;
-				--bg: #f9f9fb;
-				--text: #212121;
-				--muted: #6c757d;
-				--border: #e0e0e0;
-				--radius: 12px;
-				--shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-				--nav-bg: #ffffff;
-				--toggle-bg: #e3f2fd;
-			}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Disclaimer – Ustin M. Vaskin</title>
+  <style>
+    :root {
+      --font-family: "Inter", "Roboto", "Helvetica Neue", sans-serif;
+      --primary: #1976d2;
+      --primary-dark: #0d47a1;
+      --bg: #f9f9fb;
+      --text: #212121;
+      --muted: #6c757d;
+      --border: #e0e0e0;
+      --radius: 12px;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --nav-bg: #ffffff;
+      --toggle-bg: #e3f2fd;
+    }
 
-			html[data-theme="dark"] {
-				--primary: #90caf9;
-				--primary-dark: #e3f2fd;
-				--bg: #181a1b;
-				--text: #f1f1f1;
-				--muted: #b0b0b0;
-				--border: #333;
-				--shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
-				--nav-bg: #222;
-				--toggle-bg: #2c2f30;
-			}
+    html[data-theme="dark"] {
+      --primary: #90caf9;
+      --primary-dark: #e3f2fd;
+      --bg: #181a1b;
+      --text: #f1f1f1;
+      --muted: #b0b0b0;
+      --border: #333;
+      --shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+      --nav-bg: #222;
+      --toggle-bg: #2c2f30;
+    }
 
-			html {
-				scroll-behavior: smooth;
-			}
+    html {
+      scroll-behavior: smooth;
+    }
 
-			body {
-				font-family: var(--font-family);
-				background-color: var(--bg);
-				color: var(--text);
-				line-height: 1.8;
-				margin: 0 auto;
-				padding: 2rem 1.25rem;
-				max-width: 900px;
-				font-size: 1rem;
-			}
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+      max-width: 900px;
+      font-size: 1rem;
+    }
 
-			h1 {
-				color: var(--text);
-				font-size: 2rem;
-				font-weight: 600;
-				border-bottom: 1px solid var(--border);
-				padding-bottom: 0.5rem;
-				margin-bottom: 2rem;
-				line-height: 1.3;
-			}
+    h1 {
+      color: var(--text);
+      font-size: 2rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+      line-height: 1.3;
+    }
 
-			h2 {
-				color: var(--primary-dark);
-				font-size: 1.375rem;
-				font-weight: 500;
-				border-left: 4px solid var(--primary);
-				padding-left: 0.75rem;
-				margin-top: 2.5rem;
-				margin-bottom: 1rem;
-				line-height: 1.3;
-			}
+    h2 {
+      color: var(--primary-dark);
+      font-size: 1.375rem;
+      font-weight: 500;
+      border-left: 4px solid var(--primary);
+      padding-left: 0.75rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
 
-			html[data-theme="dark"] h2 {
-				color: var(--primary);
-				border-left: 4px solid var(--primary-dark);
-			}
+    html[data-theme="dark"] h2 {
+      color: var(--primary);
+      border-left: 4px solid var(--primary-dark);
+    }
 
-			section {
-				background-color: #fff;
-				border-radius: var(--radius);
-				box-shadow: var(--shadow);
-				padding: 1.5rem 1.75rem;
-				margin-bottom: 2.5rem;
-			}
+    section {
+      background-color: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2.5rem;
+    }
 
-			html[data-theme="dark"] section {
-				background-color: #242526;
-				color: var(--text);
-			}
+    html[data-theme="dark"] section {
+      background-color: #242526;
+      color: var(--text);
+    }
 
-			p {
-				margin-bottom: 1rem;
-			}
+    p {
+      margin-bottom: 1rem;
+    }
 
-			a {
-				color: var(--primary);
-				text-decoration: none;
-			}
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
 
-			html[data-theme="dark"] a {
-				color: var(--primary);
-			}
+    html[data-theme="dark"] a {
+      color: var(--primary);
+    }
 
-			.lang {
-				font-style: italic;
-				color: var(--muted);
-				margin-bottom: 1rem;
-				font-size: 0.9rem;
-			}
+    .lang {
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
 
-			footer {
-				margin-top: 4rem;
-				font-size: 0.85rem;
-				color: var(--muted);
-				border-top: 1px solid var(--border);
-				padding-top: 2rem;
-				text-align: center;
-			}
+    footer {
+      margin-top: 4rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      text-align: center;
+    }
 
-			html[data-theme="dark"] footer {
-				background-color: transparent;
-				color: var(--muted);
-			}
+    html[data-theme="dark"] footer {
+      background-color: transparent;
+      color: var(--muted);
+    }
 
-			#device-info {
-				font-size: 0.85rem;
-				color: var(--text);
-				margin-top: 1rem;
-			}
+    #device-info {
+      font-size: 0.85rem;
+      color: var(--text);
+      margin-top: 1rem;
+    }
 
-			/* --- NAVIGATION --- */
-			.navbar {
-				background-color: var(--nav-bg);
-				border-bottom: 1px solid var(--border);
-				position: sticky;
-				top: 0;
-				z-index: 1000;
-				padding: 0.75rem 1rem;
-			}
+    /* === NAVIGATION === */
+    .navbar {
+      background-color: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0.75rem 1rem;
+    }
 
-			.nav-header {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-			}
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-			.nav-brand {
-				font-weight: 600;
-				font-size: 1rem;
-				color: var(--text);
-			}
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+    }
 
-			.nav-toggle {
-				background: none;
-				border: none;
-				font-size: 1.5rem;
-				cursor: pointer;
-				color: var(--primary);
-			}
+    .nav-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--primary);
+      display: block;
+    }
 
-			.nav-menu {
-				list-style: none;
-				padding: 0;
-				margin: 0;
-				display: flex;
-				gap: 1rem;
-			}
+    /* === FULLSCREEN MOBILE MENU === */
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--nav-bg);
+      display: none;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 4rem;
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+    }
 
-			.nav-menu li a {
-				text-decoration: none;
-				color: var(--primary);
-				background-color: var(--toggle-bg);
-				padding: 0.4rem 0.75rem;
-				border-radius: var(--radius);
-				display: inline-block;
-				font-weight: 500;
-			}
+    .nav-overlay.open {
+      display: flex;
+    }
 
-			/* --- MOBILE NAVIGATION --- */
-			@media (max-width: 600px) {
-				.nav-menu {
-					flex-direction: column;
-					max-height: 0;
-					overflow: hidden;
-					transition: max-height 0.3s ease;
-				}
-				.nav-menu.open {
-					max-height: 500px;
-					margin-top: 0.75rem;
-				}
-				.nav-menu li a {
-					width: 100%;
-					padding: 0.75rem 1rem;
-					background-color: var(--toggle-bg);
-				}
-				body {
-					font-size: 0.95rem;
-					padding: 1.5rem 1rem;
-				}
-				h1 {
-					font-size: 1.5rem;
-				}
-				h2 {
-					font-size: 1.125rem;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<main>
-			<!-- NAVIGATION -->
-			<nav class="navbar" aria-label="Main navigation">
-				<div class="nav-header">
-					<div class="nav-brand">Ustin M. Vaskin</div>
-					<button
-						class="nav-toggle"
-						onclick="toggleNav()"
-						aria-label="Toggle menu"
-					>
-						☰
-					</button>
-				</div>
-				<ul id="nav-links" class="nav-menu">
-					<li><a href="#disclaimer-en">English</a></li>
-					<li><a href="#disclaimer-no">Norsk</a></li>
-					<li><a href="#disclaimer-ru">Русский</a></li>
-					<li><a href="#disclaimer-de">Deutsch</a></li>
-					<li><a href="#disclaimer-fr">Français</a></li>
-					<li><a href="#disclaimer-zh">中文</a></li>
-					<li><a href="#disclaimer-ar">العربية</a></li>
-					<li><a href="#disclaimer-es">Español</a></li>
-				</ul>
-			</nav>
+    .nav-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
 
-			<!-- CONTACT INFO -->
-			<section
-				style="
-					text-align: center;
-					font-size: 0.9rem;
-					line-height: 1.6;
-					margin-top: 2rem;
-				"
-			>
-				<strong style="font-weight: 600">Ustin M. Vaskin</strong><br />
-				<span style="color: var(--muted); font-size: 0.85rem"
-					>B.B.M · PG.Dip · M.C.S</span
-				><br />
-				<a href="tel:+4798628758">+47 986 28 758</a> |
-				<a href="tel:+447729386491">+44 7729 386491</a><br />
-				<a href="mailto:ustin.vaskin2011@gmail.com"
-					>ustin.vaskin2011@gmail.com</a
-				>
-			</section>
+    .nav-overlay-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      align-items: center;
+      font-size: 1.25rem;
+    }
 
-			<h1>Email Disclaimer</h1>
+    .nav-overlay-menu li a {
+      text-decoration: none;
+      color: var(--primary);
+      background-color: var(--toggle-bg);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+    }
+
+    .nav-overlay-menu li a:hover {
+      background-color: var(--primary);
+      color: #fff;
+    }
+
+    /* === MOBILE STYLING TWEAKS === */
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.95rem;
+        padding: 1.5rem 1rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2 {
+        font-size: 1.125rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="nav-header">
+        <div class="nav-brand">Ustin M. Vaskin</div>
+        <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu">☰</button>
+      </div>
+
+      <!-- Fullscreen Mobile Menu -->
+      <div id="mobile-menu" class="nav-overlay">
+        <button class="nav-close" onclick="toggleNav()" aria-label="Close menu">✕</button>
+        <ul class="nav-overlay-menu">
+          <li><a href="#disclaimer-en" onclick="toggleNav()">English</a></li>
+          <li><a href="#disclaimer-no" onclick="toggleNav()">Norsk</a></li>
+          <li><a href="#disclaimer-ru" onclick="toggleNav()">Русский</a></li>
+          <li><a href="#disclaimer-de" onclick="toggleNav()">Deutsch</a></li>
+          <li><a href="#disclaimer-fr" onclick="toggleNav()">Français</a></li>
+          <li><a href="#disclaimer-zh" onclick="toggleNav()">中文</a></li>
+          <li><a href="#disclaimer-ar" onclick="toggleNav()">العربية</a></li>
+          <li><a href="#disclaimer-es" onclick="toggleNav()">Español</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- CONTACT INFO -->
+    <section style="text-align: center; font-size: 0.9rem; line-height: 1.6; margin-top: 2rem;">
+      <strong style="font-weight: 600;">Ustin M. Vaskin</strong><br />
+      <span style="color: var(--muted); font-size: 0.85rem;">B.B.M · PG.Dip · M.C.S</span><br />
+      <a href="tel:+4798628758">+47 986 28 758</a> | <a href="tel:+447729386491">+44 7729 386491</a><br />
+      <a href="mailto:ustin.vaskin2011@gmail.com">ustin.vaskin2011@gmail.com</a>
+    </section>
+
+    <h1>Email Disclaimer</h1>
 
 			<section id="disclaimer-en">
 				<h2>Confidentiality and Legal Notice</h2>
@@ -744,36 +756,27 @@
 			</p>
 		</main>
 
-		<!-- SCRIPTS -->
-		<script>
-			document.getElementById("current-year").textContent =
-				new Date().getFullYear();
-			document.getElementById("current-date").textContent =
-				new Date().toLocaleString();
-			document.getElementById("device-info").textContent = navigator.userAgent;
+	 <!-- FOOTER -->
+    <section>
+      <p id="device-info" style="font-size: 10px">Loading device information...</p>
+    </section>
+    <p>
+      © <span id="current-year"></span> Ustin M. Vaskin. All rights reserved.<br />
+      <span id="current-date"></span>
+    </p>
+  </main>
 
-			function toggleNav() {
-				const nav = document.getElementById("nav-links");
-				const btn = document.querySelector(".nav-toggle");
-				const open = nav.classList.toggle("open");
-				btn.textContent = open ? "✕" : "☰";
-			}
+  <!-- SCRIPTS -->
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+    document.getElementById("current-date").textContent = new Date().toLocaleString();
+    document.getElementById("device-info").textContent = navigator.userAgent;
 
-			function toggleTheme() {
-				const html = document.documentElement;
-				const currentTheme = html.getAttribute("data-theme");
-				const newTheme = currentTheme === "dark" ? "light" : "dark";
-				html.setAttribute("data-theme", newTheme);
-				document.getElementById("theme-icon").textContent =
-					newTheme === "dark" ? "🌙" : "🌞";
-			}
-
-			if (
-				window.matchMedia &&
-				window.matchMedia("(prefers-color-scheme: dark)").matches
-			) {
-				document.documentElement.setAttribute("data-theme", "dark");
-			}
-		</script>
-	</body>
+    function toggleNav() {
+      const menu = document.getElementById("mobile-menu");
+      const isOpen = menu.classList.toggle("open");
+      document.body.style.overflow = isOpen ? "hidden" : "auto";
+    }
+  </script>
+</body>
 </html>
