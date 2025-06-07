@@ -34,6 +34,7 @@
 			html {
 				scroll-behavior: smooth;
 			}
+
 			body {
 				font-family: var(--font-family);
 				background-color: var(--bg);
@@ -44,6 +45,7 @@
 				max-width: 900px;
 				font-size: 1rem;
 			}
+
 			h1 {
 				color: var(--text);
 				font-size: 2rem;
@@ -53,6 +55,7 @@
 				margin-bottom: 2rem;
 				line-height: 1.3;
 			}
+
 			h2 {
 				color: var(--primary-dark);
 				font-size: 1.375rem;
@@ -63,10 +66,12 @@
 				margin-bottom: 1rem;
 				line-height: 1.3;
 			}
+
 			html[data-theme="dark"] h2 {
 				color: var(--primary);
 				border-left: 4px solid var(--primary-dark);
 			}
+
 			section {
 				background-color: #fff;
 				border-radius: var(--radius);
@@ -74,26 +79,32 @@
 				padding: 1.5rem 1.75rem;
 				margin-bottom: 2.5rem;
 			}
+
 			html[data-theme="dark"] section {
 				background-color: #242526;
 				color: var(--text);
 			}
+
 			p {
 				margin-bottom: 1rem;
 			}
+
 			a {
 				color: var(--primary);
 				text-decoration: none;
 			}
+
 			html[data-theme="dark"] a {
 				color: var(--primary);
 			}
+
 			.lang {
 				font-style: italic;
 				color: var(--muted);
 				margin-bottom: 1rem;
 				font-size: 0.9rem;
 			}
+
 			footer {
 				margin-top: 4rem;
 				font-size: 0.85rem;
@@ -102,96 +113,83 @@
 				padding-top: 2rem;
 				text-align: center;
 			}
+
 			html[data-theme="dark"] footer {
 				background-color: transparent;
 				color: var(--muted);
 			}
+
 			#device-info {
 				font-size: 0.85rem;
 				color: var(--text);
 				margin-top: 1rem;
 			}
-			[dir="rtl"] {
-				text-align: right;
-			}
 
-			/* NAVIGATION STYLES */
-			nav {
+			/* --- NAVIGATION --- */
+			.navbar {
+				background-color: var(--nav-bg);
+				border-bottom: 1px solid var(--border);
 				position: sticky;
 				top: 0;
-				background-color: var(--nav-bg);
-				padding: 1rem;
 				z-index: 1000;
-				border-bottom: 1px solid var(--border);
+				padding: 0.75rem 1rem;
+			}
+
+			.nav-header {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 			}
-			.nav-start {
-				display: flex;
-				align-items: center;
-				gap: 1rem;
-				width: 100%;
-				justify-content: space-between;
+
+			.nav-brand {
+				font-weight: 600;
+				font-size: 1rem;
+				color: var(--text);
 			}
-			nav ul {
+
+			.nav-toggle {
+				background: none;
+				border: none;
+				font-size: 1.5rem;
+				cursor: pointer;
+				color: var(--primary);
+			}
+
+			.nav-menu {
 				list-style: none;
 				padding: 0;
 				margin: 0;
 				display: flex;
-				flex-wrap: wrap;
-				gap: 0.75rem;
+				gap: 1rem;
 			}
-			nav ul li a {
+
+			.nav-menu li a {
 				text-decoration: none;
 				color: var(--primary);
 				background-color: var(--toggle-bg);
 				padding: 0.4rem 0.75rem;
 				border-radius: var(--radius);
-				transition:
-					background-color 0.2s ease,
-					color 0.2s ease;
+				display: inline-block;
 				font-weight: 500;
 			}
-			nav ul li a:focus,
-			nav ul li a:hover {
-				background-color: var(--primary);
-				color: #fff;
-				outline: none;
-			}
-			html[data-theme="dark"] nav ul li a {
-				color: var(--primary);
-				background-color: var(--toggle-bg);
-			}
-			html[data-theme="dark"] nav ul li a:hover,
-			html[data-theme="dark"] nav ul li a:focus {
-				background-color: var(--primary);
-				color: #000;
-			}
 
-			.theme-toggle {
-				cursor: pointer;
-				background: none;
-				border: none;
-				font-size: 1.5rem;
-				color: var(--text);
-				transition: color 0.2s ease;
-			}
-			.theme-toggle:hover,
-			.theme-toggle:focus {
-				color: var(--primary);
-			}
-			.nav-toggle {
-				display: none;
-				font-size: 1.5rem;
-				background: none;
-				border: none;
-				cursor: pointer;
-				color: var(--primary);
-			}
-
-			/* MOBILE NAVIGATION FIX */
+			/* --- MOBILE NAVIGATION --- */
 			@media (max-width: 600px) {
+				.nav-menu {
+					flex-direction: column;
+					max-height: 0;
+					overflow: hidden;
+					transition: max-height 0.3s ease;
+				}
+				.nav-menu.open {
+					max-height: 500px;
+					margin-top: 0.75rem;
+				}
+				.nav-menu li a {
+					width: 100%;
+					padding: 0.75rem 1rem;
+					background-color: var(--toggle-bg);
+				}
 				body {
 					font-size: 0.95rem;
 					padding: 1.5rem 1rem;
@@ -202,79 +200,36 @@
 				h2 {
 					font-size: 1.125rem;
 				}
-				nav {
-					flex-direction: column;
-					align-items: stretch;
-				}
-				.nav-start {
-					width: 100%;
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
-				}
-				.nav-toggle {
-					display: block;
-					font-size: 1.75rem;
-					order: 2;
-				}
-				nav ul {
-					flex-direction: column;
-					width: 100%;
-					gap: 0.75rem;
-					overflow: hidden;
-					max-height: 0;
-					transition: max-height 0.3s ease;
-				}
-				nav ul.open {
-					max-height: 500px;
-				}
-				nav ul li a {
-					display: block;
-					width: 100%;
-					padding: 0.75rem;
-					text-align: left;
-				}
 			}
 		</style>
 	</head>
 	<body>
 		<main>
 			<!-- NAVIGATION -->
-			<nav aria-label="Language navigation">
-				<div class="nav-start">
-					<!-- Hamburger Button -->
+			<nav class="navbar" aria-label="Main navigation">
+				<div class="nav-header">
+					<div class="nav-brand">Ustin M. Vaskin</div>
 					<button
 						class="nav-toggle"
-						aria-label="Toggle navigation"
 						onclick="toggleNav()"
+						aria-label="Toggle menu"
 					>
 						☰
 					</button>
-
-					<!-- Navigation Links -->
-					<ul id="nav-links">
-						<li><a href="#disclaimer-en">English</a></li>
-						<li><a href="#disclaimer-no">Norsk</a></li>
-						<li><a href="#disclaimer-ru">Русский</a></li>
-						<li><a href="#disclaimer-de">Deutsch</a></li>
-						<li><a href="#disclaimer-fr">Français</a></li>
-						<li><a href="#disclaimer-zh">中文</a></li>
-						<li><a href="#disclaimer-ar">العربية</a></li>
-						<li><a href="#disclaimer-es">Español</a></li>
-					</ul>
 				</div>
-
-				<!-- Theme Toggle -->
-				<button
-					class="theme-toggle"
-					onclick="toggleTheme()"
-					aria-label="Toggle dark or light mode"
-				>
-					<span id="theme-icon">🌞</span>
-				</button>
+				<ul id="nav-links" class="nav-menu">
+					<li><a href="#disclaimer-en">English</a></li>
+					<li><a href="#disclaimer-no">Norsk</a></li>
+					<li><a href="#disclaimer-ru">Русский</a></li>
+					<li><a href="#disclaimer-de">Deutsch</a></li>
+					<li><a href="#disclaimer-fr">Français</a></li>
+					<li><a href="#disclaimer-zh">中文</a></li>
+					<li><a href="#disclaimer-ar">العربية</a></li>
+					<li><a href="#disclaimer-es">Español</a></li>
+				</ul>
 			</nav>
 
-			<!-- CONTACT HEADER -->
+			<!-- CONTACT INFO -->
 			<section
 				style="
 					text-align: center;
@@ -783,12 +738,12 @@
 				</p>
 			</section>
 			<p>
-				© <span id="current-year"></span> Ustin M. Vaskin. All rights reserved.
-				<br /><span id="current-date"></span>
+				© <span id="current-year"></span> Ustin M. Vaskin. All rights
+				reserved.<br />
+				<span id="current-date"></span>
 			</p>
 		</main>
 
-		<!-- SCRIPTS -->
 		<!-- SCRIPTS -->
 		<script>
 			document.getElementById("current-year").textContent =
@@ -796,6 +751,13 @@
 			document.getElementById("current-date").textContent =
 				new Date().toLocaleString();
 			document.getElementById("device-info").textContent = navigator.userAgent;
+
+			function toggleNav() {
+				const nav = document.getElementById("nav-links");
+				const btn = document.querySelector(".nav-toggle");
+				const open = nav.classList.toggle("open");
+				btn.textContent = open ? "✕" : "☰";
+			}
 
 			function toggleTheme() {
 				const html = document.documentElement;
@@ -806,19 +768,11 @@
 					newTheme === "dark" ? "🌙" : "🌞";
 			}
 
-			function toggleNav() {
-				const nav = document.getElementById("nav-links");
-				const btn = document.querySelector(".nav-toggle");
-				nav.classList.toggle("open");
-				btn.textContent = nav.classList.contains("open") ? "✕" : "☰";
-			}
-
 			if (
 				window.matchMedia &&
 				window.matchMedia("(prefers-color-scheme: dark)").matches
 			) {
 				document.documentElement.setAttribute("data-theme", "dark");
-				document.getElementById("theme-icon").textContent = "🌙";
 			}
 		</script>
 	</body>
