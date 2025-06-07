@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,6 +19,14 @@
 				--border: #e0e0e0;
 				--radius: 12px;
 				--shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+			}
+
+			html[data-theme="dark"] {
+				--bg: #121212;
+				--text: #e0e0e0;
+				--muted: #aaaaaa;
+				--border: #333;
+				--shadow: 0 2px 8px rgba(255, 255, 255, 0.06);
 			}
 
 			html {
@@ -67,6 +75,10 @@
 				margin-bottom: 2.5rem;
 			}
 
+			html[data-theme="dark"] section {
+				background-color: #1e1e1e;
+			}
+
 			p {
 				margin-bottom: 1rem;
 			}
@@ -105,6 +117,13 @@
 				z-index: 1000;
 				border-bottom: 1px solid var(--border);
 				margin-bottom: 2rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			html[data-theme="dark"] nav {
+				background-color: #1e1e1e;
 			}
 
 			nav ul {
@@ -113,6 +132,7 @@
 				display: flex;
 				flex-wrap: wrap;
 				gap: 0.75rem;
+				margin: 0;
 			}
 
 			nav ul li a {
@@ -131,6 +151,16 @@
 				color: #fff;
 			}
 
+			.theme-toggle {
+				cursor: pointer;
+				background-color: transparent;
+				border: 1px solid var(--border);
+				border-radius: var(--radius);
+				padding: 0.25rem 0.75rem;
+				font-size: 0.9rem;
+				color: var(--text);
+			}
+
 			@media (max-width: 600px) {
 				body {
 					font-size: 0.95rem;
@@ -143,6 +173,11 @@
 
 				h2 {
 					font-size: 1.125rem;
+				}
+
+				nav {
+					flex-direction: column;
+					align-items: flex-start;
 				}
 
 				nav ul {
@@ -225,6 +260,9 @@
 				<li><a href="#disclaimer-zh">中文</a></li>
 				<li><a href="#disclaimer-ar">العربية</a></li>
 				<li><a href="#disclaimer-es">Español</a></li>
+				<button class="theme-toggle" onclick="toggleTheme()">
+					Toggle Theme
+				</button>
 			</ul>
 		</nav>
 
@@ -738,5 +776,15 @@
 
 		// Set the current date
 		document.getElementById("current-date").textContent = new Date();
+	</script>
+	<script>
+		function toggleTheme() {
+			const html = document.documentElement;
+			const currentTheme = html.getAttribute("data-theme");
+			html.setAttribute(
+				"data-theme",
+				currentTheme === "dark" ? "light" : "dark",
+			);
+		}
 	</script>
 </html>
