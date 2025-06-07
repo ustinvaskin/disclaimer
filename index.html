@@ -12,13 +12,15 @@
 			:root {
 				--font-family: "Inter", "Roboto", "Helvetica Neue", sans-serif;
 				--primary: #1976d2;
-				--primary-dark: #115293;
+				--primary-dark: #0d47a1;
 				--bg: #f9f9fb;
 				--text: #212121;
 				--muted: #6c757d;
 				--border: #e0e0e0;
 				--radius: 12px;
 				--shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+				--nav-bg: #ffffff;
+				--toggle-bg: #e3f2fd;
 			}
 
 			html[data-theme="dark"] {
@@ -27,6 +29,8 @@
 				--muted: #aaaaaa;
 				--border: #333;
 				--shadow: 0 2px 8px rgba(255, 255, 255, 0.06);
+				--nav-bg: #1e1e1e;
+				--toggle-bg: #2a2a2a;
 			}
 
 			html {
@@ -112,7 +116,7 @@
 			nav {
 				position: sticky;
 				top: 0;
-				background-color: #fff;
+				background-color: var(--nav-bg);
 				padding: 1rem;
 				z-index: 1000;
 				border-bottom: 1px solid var(--border);
@@ -120,24 +124,22 @@
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-			}
-
-			html[data-theme="dark"] nav {
-				background-color: #1e1e1e;
+				flex-wrap: wrap;
 			}
 
 			nav ul {
 				list-style: none;
 				padding: 0;
+				margin: 0;
 				display: flex;
 				flex-wrap: wrap;
 				gap: 0.75rem;
-				margin: 0;
 			}
 
 			nav ul li a {
 				text-decoration: none;
 				color: var(--primary);
+				background-color: var(--toggle-bg);
 				padding: 0.4rem 0.75rem;
 				border-radius: var(--radius);
 				transition:
@@ -146,19 +148,30 @@
 				font-weight: 500;
 			}
 
+			nav ul li a:focus,
 			nav ul li a:hover {
 				background-color: var(--primary);
 				color: #fff;
+				outline: none;
 			}
 
 			.theme-toggle {
 				cursor: pointer;
-				background-color: transparent;
+				background-color: var(--toggle-bg);
 				border: 1px solid var(--border);
 				border-radius: var(--radius);
-				padding: 0.25rem 0.75rem;
+				padding: 0.4rem 0.75rem;
 				font-size: 0.9rem;
 				color: var(--text);
+				margin-left: auto;
+				transition: background-color 0.2s ease;
+			}
+
+			.theme-toggle:focus,
+			.theme-toggle:hover {
+				background-color: var(--primary);
+				color: #fff;
+				outline: none;
 			}
 
 			@media (max-width: 600px) {
@@ -180,78 +193,21 @@
 					align-items: flex-start;
 				}
 
+				.theme-toggle {
+					margin-top: 1rem;
+					margin-left: 0;
+				}
+
 				nav ul {
 					flex-direction: column;
+					gap: 0.5rem;
 				}
 			}
 		</style>
 	</head>
 	<body>
-		<div class="email-signature">
-			<div
-				class="signature-wrapper"
-				style="
-					display: flex;
-					align-items: center;
-					gap: 1rem;
-					margin-top: 2rem;
-					font-size: 0.95rem;
-				"
-			>
-				<div class="contact-info">
-					<strong>Ustin M. Vaskin</strong>
-
-					<br />
-					B.B.M · PG.Dip · M.C.S <br /><br />
-
-					<div class="contact-line" style="margin-bottom: 0.25rem">
-						<img
-							class="icon"
-							src="https://img.icons8.com/ios-filled/20/000000/phone.png"
-							style="
-								vertical-align: middle;
-								width: 16px;
-								height: 16px;
-								margin-right: 6px;
-							"
-						/>
-						<strong>NO:</strong>
-						<a href="tel:+4798628758">+47 986 28 758</a>
-						&nbsp;&nbsp;|&nbsp;&nbsp; <strong>UK:</strong>
-						<a href="tel:+447729386491">+44 7729 386491</a>
-					</div>
-					<div class="contact-line" style="margin-bottom: 0.25rem">
-						<img
-							class="icon"
-							src="https://img.icons8.com/ios-filled/20/000000/email.png"
-							style="
-								vertical-align: middle;
-								width: 16px;
-								height: 16px;
-								margin-right: 6px;
-							"
-						/>
-						<a href="mailto:ustin.vaskin2011@gmail.com"
-							>ustin.vaskin2011@gmail.com</a
-						>
-					</div>
-				</div>
-			</div>
-		</div>
-		<h1>Email Disclaimer</h1>
-
-		<nav style="margin-bottom: 2rem; font-size: 0.95rem">
-			<strong>Jump to language:</strong>
-			<ul
-				style="
-					list-style: none;
-					padding-left: 0;
-					display: flex;
-					flex-wrap: wrap;
-					gap: 1rem;
-					margin-top: 0.5rem;
-				"
-			>
+		<nav aria-label="Language navigation">
+			<ul>
 				<li><a href="#disclaimer-en">English</a></li>
 				<li><a href="#disclaimer-no">Norsk</a></li>
 				<li><a href="#disclaimer-ru">Русский</a></li>
@@ -260,10 +216,14 @@
 				<li><a href="#disclaimer-zh">中文</a></li>
 				<li><a href="#disclaimer-ar">العربية</a></li>
 				<li><a href="#disclaimer-es">Español</a></li>
-				<button class="theme-toggle" onclick="toggleTheme()">
-					Toggle Theme
-				</button>
 			</ul>
+			<button
+				class="theme-toggle"
+				onclick="toggleTheme()"
+				aria-label="Toggle dark or light mode"
+			>
+				Toggle Theme
+			</button>
 		</nav>
 
 		<section id="disclaimer-en">
@@ -602,7 +562,7 @@
 			</p>
 		</section>
 
-		<section id="disclaimer-ar">
+		<section id="disclaimer-ar" dir="rtl">
 			<div class="lang">عربي</div>
 
 			<h2>بيان السرية والتنويه القانوني</h2>
