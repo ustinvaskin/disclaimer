@@ -131,6 +131,8 @@
 				display: flex;
 				align-items: center;
 				gap: 1rem;
+				width: 100%;
+				justify-content: space-between;
 			}
 			nav ul {
 				list-style: none;
@@ -188,6 +190,7 @@
 				color: var(--primary);
 			}
 
+			/* MOBILE NAVIGATION FIX */
 			@media (max-width: 600px) {
 				body {
 					font-size: 0.95rem;
@@ -201,7 +204,7 @@
 				}
 				nav {
 					flex-direction: column;
-					align-items: flex-start;
+					align-items: stretch;
 				}
 				.nav-start {
 					width: 100%;
@@ -212,6 +215,7 @@
 				.nav-toggle {
 					display: block;
 					font-size: 1.75rem;
+					order: 2;
 				}
 				nav ul {
 					flex-direction: column;
@@ -271,11 +275,20 @@
 			</nav>
 
 			<!-- CONTACT HEADER -->
-			<section style="text-align: center; margin-top: 3rem; font-size: 0.95rem">
-				<strong>Ustin M. Vaskin</strong><br />
-				<span>B.B.M · PG.Dip · M.C.S</span><br /><br />
-				<a href="tel:+4798628758">NO: +47 986 28 758</a> &nbsp;|&nbsp;
-				<a href="tel:+447729386491">UK: +44 7729 386491</a><br />
+			<section
+				style="
+					text-align: center;
+					font-size: 0.9rem;
+					line-height: 1.6;
+					margin-top: 2rem;
+				"
+			>
+				<strong style="font-weight: 600">Ustin M. Vaskin</strong><br />
+				<span style="color: var(--muted); font-size: 0.85rem"
+					>B.B.M · PG.Dip · M.C.S</span
+				><br />
+				<a href="tel:+4798628758">+47 986 28 758</a> |
+				<a href="tel:+447729386491">+44 7729 386491</a><br />
 				<a href="mailto:ustin.vaskin2011@gmail.com"
 					>ustin.vaskin2011@gmail.com</a
 				>
@@ -775,6 +788,7 @@
 			</p>
 		</main>
 
+		<!-- SCRIPTS -->
 		<!-- SCRIPTS -->
 		<script>
 			document.getElementById("current-year").textContent =
