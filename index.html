@@ -1,224 +1,221 @@
 <!doctype html>
 <html lang="en" data-theme="light">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="Content-Language" content="en, ar, zh, es, fr, de, ru, no" />
-		<title>Email Disclaimer – Ustin M. Vaskin</title>
-		<style>
-			:root {
-				--font-family: "Inter", "Roboto", "Helvetica Neue", sans-serif;
-				--primary: #1976d2;
-				--primary-dark: #0d47a1;
-				--bg: #f9f9fb;
-				--text: #212121;
-				--muted: #6c757d;
-				--border: #e0e0e0;
-				--radius: 12px;
-				--shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-				--nav-bg: #ffffff;
-				--toggle-bg: #e3f2fd;
-			}
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Email Disclaimer – Ustin M. Vaskin</title>
+	<style>
+		:root {
+			--font-family: "Inter", "Roboto", "Helvetica Neue", sans-serif;
+			--primary: #1976d2;
+			--primary-dark: #0d47a1;
+			--bg: #f9f9fb;
+			--text: #212121;
+			--muted: #6c757d;
+			--border: #e0e0e0;
+			--radius: 12px;
+			--shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+			--nav-bg: #ffffff;
+			--toggle-bg: #e3f2fd;
+		}
+		html[data-theme="dark"] {
+			--bg: #121212;
+			--text: #e0e0e0;
+			--muted: #aaaaaa;
+			--border: #333;
+			--shadow: 0 2px 8px rgba(255, 255, 255, 0.06);
+			--nav-bg: #1e1e1e;
+			--toggle-bg: #2a2a2a;
+		}
+		html {
+			scroll-behavior: smooth;
+		}
+		body {
+			font-family: var(--font-family);
+			background-color: var(--bg);
+			color: var(--text);
+			line-height: 1.8;
+			margin: 0 auto;
+			padding: 2rem 1.25rem;
+			max-width: 900px;
+			font-size: 1rem;
+		}
+		h1 {
+			color: var(--text);
+			font-size: 2rem;
+			font-weight: 600;
+			border-bottom: 1px solid var(--border);
+			padding-bottom: 0.5rem;
+			margin-bottom: 2rem;
+			line-height: 1.3;
+		}
+		h2 {
+			color: var(--primary-dark);
+			font-size: 1.375rem;
+			font-weight: 500;
+			border-left: 4px solid var(--primary);
+			padding-left: 0.75rem;
+			margin-top: 2.5rem;
+			margin-bottom: 1rem;
+			line-height: 1.3;
+		}
+		section {
+			background-color: #fff;
+			border-radius: var(--radius);
+			box-shadow: var(--shadow);
+			padding: 1.5rem 1.75rem;
+			margin-bottom: 2.5rem;
+		}
+		html[data-theme="dark"] section {
+			background-color: #1e1e1e;
+		}
+		p {
+			margin-bottom: 1rem;
+		}
+		.lang {
+			font-style: italic;
+			color: var(--muted);
+			margin-bottom: 1rem;
+			font-size: 0.9rem;
+		}
+		footer {
+			margin-top: 4rem;
+			font-size: 0.85rem;
+			color: var(--muted);
+			border-top: 1px solid var(--border);
+			padding-top: 2rem;
+			text-align: center;
+		}
+		#device-info {
+			font-size: 0.85rem;
+			color: var(--text);
+			margin-top: 1rem;
+		}
+		[dir="rtl"] {
+			text-align: right;
+		}
 
-			html[data-theme="dark"] {
-				--bg: #121212;
-				--text: #e0e0e0;
-				--muted: #aaaaaa;
-				--border: #333;
-				--shadow: 0 2px 8px rgba(255, 255, 255, 0.06);
-				--nav-bg: #1e1e1e;
-				--toggle-bg: #2a2a2a;
-			}
+		/* NAVIGATION STYLES */
+		nav {
+			position: sticky;
+			top: 0;
+			background-color: var(--nav-bg);
+			padding: 1rem;
+			z-index: 1000;
+			border-bottom: 1px solid var(--border);
+			margin-bottom: 2rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		nav ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.75rem;
+		}
+		nav ul li a {
+			text-decoration: none;
+			color: var(--primary);
+			background-color: var(--toggle-bg);
+			padding: 0.4rem 0.75rem;
+			border-radius: var(--radius);
+			transition: background-color 0.2s ease, color 0.2s ease;
+			font-weight: 500;
+		}
+		nav ul li a:focus,
+		nav ul li a:hover {
+			background-color: var(--primary);
+			color: #fff;
+			outline: none;
+		}
+		.theme-toggle {
+			cursor: pointer;
+			background-color: var(--toggle-bg);
+			border: 1px solid var(--border);
+			border-radius: var(--radius);
+			padding: 0.4rem 0.75rem;
+			font-size: 0.9rem;
+			color: var(--text);
+			margin-left: auto;
+			transition: background-color 0.2s ease;
+		}
+		.theme-toggle:focus,
+		.theme-toggle:hover {
+			background-color: var(--primary);
+			color: #fff;
+			outline: none;
+		}
+		.nav-toggle {
+			display: none;
+			font-size: 1.5rem;
+			background: none;
+			border: none;
+			cursor: pointer;
+			color: var(--primary);
+		}
 
-			html {
-				scroll-behavior: smooth;
-			}
-
+		/* Mobile Styles */
+		@media (max-width: 600px) {
 			body {
-				font-family: var(--font-family);
-				background-color: var(--bg);
-				color: var(--text);
-				line-height: 1.8;
-				margin: 0 auto;
-				padding: 2rem 1.25rem;
-				max-width: 900px;
-				font-size: 1rem;
+				font-size: 0.95rem;
+				padding: 1.5rem 1rem;
 			}
-
 			h1 {
-				color: var(--text);
-				font-size: 2rem;
-				font-weight: 600;
-				border-bottom: 1px solid var(--border);
-				padding-bottom: 0.5rem;
-				margin-bottom: 2rem;
-				line-height: 1.3;
+				font-size: 1.5rem;
 			}
-
 			h2 {
-				color: var(--primary-dark);
-				font-size: 1.375rem;
-				font-weight: 500;
-				border-left: 4px solid var(--primary);
-				padding-left: 0.75rem;
-				margin-top: 2.5rem;
-				margin-bottom: 1rem;
-				line-height: 1.3;
+				font-size: 1.125rem;
 			}
-
-			section {
-				background-color: #fff;
-				border-radius: var(--radius);
-				box-shadow: var(--shadow);
-				padding: 1.5rem 1.75rem;
-				margin-bottom: 2.5rem;
-			}
-
-			html[data-theme="dark"] section {
-				background-color: #1e1e1e;
-			}
-
-			p {
-				margin-bottom: 1rem;
-			}
-
-			.lang {
-				font-style: italic;
-				color: var(--muted);
-				margin-bottom: 1rem;
-				font-size: 0.9rem;
-			}
-
-			footer {
-				margin-top: 4rem;
-				font-size: 0.85rem;
-				color: var(--muted);
-				border-top: 1px solid var(--border);
-				padding-top: 2rem;
-				text-align: center;
-			}
-
-			#device-info {
-				font-size: 0.85rem;
-				color: var(--text);
-				margin-top: 1rem;
-			}
-
-			[dir="rtl"] {
-				text-align: right;
-			}
-
 			nav {
-				position: sticky;
-				top: 0;
-				background-color: var(--nav-bg);
-				padding: 1rem;
-				z-index: 1000;
-				border-bottom: 1px solid var(--border);
-				margin-bottom: 2rem;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				flex-wrap: wrap;
+				flex-direction: column;
+				align-items: flex-start;
 			}
-
+			.nav-toggle {
+				display: block;
+			}
 			nav ul {
-				list-style: none;
-				padding: 0;
-				margin: 0;
+				display: none;
+				flex-direction: column;
+				width: 100%;
+				margin-top: 1rem;
+				gap: 0.5rem;
+			}
+			nav ul.open {
 				display: flex;
-				flex-wrap: wrap;
-				gap: 0.75rem;
 			}
-
-			nav ul li a {
-				text-decoration: none;
-				color: var(--primary);
-				background-color: var(--toggle-bg);
-				padding: 0.4rem 0.75rem;
-				border-radius: var(--radius);
-				transition: background-color 0.2s ease, color 0.2s ease;
-				font-weight: 500;
-			}
-
-			nav ul li a:focus,
-			nav ul li a:hover {
-				background-color: var(--primary);
-				color: #fff;
-				outline: none;
-			}
-
 			.theme-toggle {
-				cursor: pointer;
-				background-color: var(--toggle-bg);
-				border: 1px solid var(--border);
-				border-radius: var(--radius);
-				padding: 0.4rem 0.75rem;
-				font-size: 0.9rem;
-				color: var(--text);
-				margin-left: auto;
-				transition: background-color 0.2s ease;
+				margin-top: 1rem;
+				margin-left: 0;
 			}
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<nav aria-label="Language navigation">
+			<!-- Hamburger Button -->
+			<button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
 
-			.theme-toggle:focus,
-			.theme-toggle:hover {
-				background-color: var(--primary);
-				color: #fff;
-				outline: none;
-			}
+			<!-- Navigation Links -->
+			<ul id="nav-links">
+				<li><a href="#disclaimer-en">English</a></li>
+				<li><a href="#disclaimer-no">Norsk</a></li>
+				<li><a href="#disclaimer-ru">Русский</a></li>
+				<li><a href="#disclaimer-de">Deutsch</a></li>
+				<li><a href="#disclaimer-fr">Français</a></li>
+				<li><a href="#disclaimer-zh">中文</a></li>
+				<li><a href="#disclaimer-ar">العربية</a></li>
+				<li><a href="#disclaimer-es">Español</a></li>
+			</ul>
 
-			@media (max-width: 600px) {
-				body {
-					font-size: 0.95rem;
-					padding: 1.5rem 1rem;
-				}
-
-				h1 {
-					font-size: 1.5rem;
-				}
-
-				h2 {
-					font-size: 1.125rem;
-				}
-
-				nav {
-					flex-direction: column;
-					align-items: flex-start;
-				}
-
-				.theme-toggle {
-					margin-top: 1rem;
-					margin-left: 0;
-				}
-
-				nav ul {
-					flex-direction: column;
-					gap: 0.5rem;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<main>
-			<nav aria-label="Language navigation">
-				<ul>
-					<li><a href="#disclaimer-en">English</a></li>
-					<li><a href="#disclaimer-no">Norsk</a></li>
-					<li><a href="#disclaimer-ru">Русский</a></li>
-					<li><a href="#disclaimer-de">Deutsch</a></li>
-					<li><a href="#disclaimer-fr">Français</a></li>
-					<li><a href="#disclaimer-zh">中文</a></li>
-					<li><a href="#disclaimer-ar">العربية</a></li>
-					<li><a href="#disclaimer-es">Español</a></li>
-				</ul>
-				<button
-					class="theme-toggle"
-					onclick="toggleTheme()"
-					aria-label="Toggle dark or light mode"
-				>
-					Toggle Theme
-				</button>
-			</nav>
+			<!-- Theme Toggle -->
+			<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark or light mode">Toggle Theme</button>
+		</nav>
+    <h1>Email Disclaimer</h1>
 
 		<section id="disclaimer-en">
 			<h2>Confidentiality and Legal Notice</h2>
@@ -688,39 +685,34 @@
 
 		<hr />
 
+		<hr />
 		<span id="current-date"></span>
 		<section>
-			<p id="device-info" style="font-size: 10px">
-				Loading device information...
-			</p>
+			<p id="device-info" style="font-size: 10px">Loading device information...</p>
 		</section>
 		<footer>
 			© <span id="current-year"></span> Ustin M. Vaskin. All rights reserved.
 		</footer>
+	</main>
 
 		<script>
 			document.getElementById("current-year").textContent =
 				new Date().getFullYear();
 		</script>
 	</body>
-		<script>
-			// Set current year once
-			document.getElementById("current-year").textContent = new Date().getFullYear();
+	<script>
+		document.getElementById("current-year").textContent = new Date().getFullYear();
+		document.getElementById("current-date").textContent = new Date().toLocaleString();
+		document.getElementById("device-info").textContent = navigator.userAgent;
 
-			// Set current date
-			document.getElementById("current-date").textContent = new Date().toLocaleString();
+		function toggleTheme() {
+			const html = document.documentElement;
+			const currentTheme = html.getAttribute("data-theme");
+			html.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+		}
 
-			// Device info
-			function getDeviceInfo() {
-				return navigator.userAgent;
-			}
-			document.getElementById("device-info").textContent = getDeviceInfo();
-
-			// Theme toggle
-			function toggleTheme() {
-				const html = document.documentElement;
-				const currentTheme = html.getAttribute("data-theme");
-				html.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
-			}
-		</script>
+		function toggleNav() {
+			document.getElementById("nav-links").classList.toggle("open");
+		}
+	</script>
 </html>
