@@ -3,10 +3,6 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta
-			name="description"
-			content="Email disclaimer in multiple languages for Ustin M. Vaskin, covering legal, privacy, and GDPR compliance."
-		/>
 		<title>Email Disclaimer – Ustin M. Vaskin</title>
 		<style>
 			:root {
@@ -25,14 +21,14 @@
 
 			html[data-theme="dark"] {
 				--primary: #90caf9;
-				--primary-dark: #bbdefb;
-				--bg: #121212;
-				--text: #e0e0e0;
-				--muted: #aaaaaa;
+				--primary-dark: #e3f2fd;
+				--bg: #181a1b;
+				--text: #f1f1f1;
+				--muted: #b0b0b0;
 				--border: #333;
-				--shadow: 0 2px 8px rgba(255, 255, 255, 0.06);
-				--nav-bg: #1e1e1e;
-				--toggle-bg: #2a2a2a;
+				--shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+				--nav-bg: #222;
+				--toggle-bg: #2c2f30;
 			}
 
 			html {
@@ -79,10 +75,18 @@
 				margin-bottom: 2.5rem;
 			}
 			html[data-theme="dark"] section {
-				background-color: #1e1e1e;
+				background-color: #242526;
+				color: var(--text);
 			}
 			p {
 				margin-bottom: 1rem;
+			}
+			a {
+				color: var(--primary);
+				text-decoration: none;
+			}
+			html[data-theme="dark"] a {
+				color: var(--primary);
 			}
 			.lang {
 				font-style: italic;
@@ -91,12 +95,13 @@
 				font-size: 0.9rem;
 			}
 			footer {
-				margin-top: 4rem;
 				font-size: 0.85rem;
 				color: var(--muted);
 				border-top: 1px solid var(--border);
-				padding-top: 2rem;
-				text-align: center;
+			}
+			html[data-theme="dark"] footer {
+				background-color: transparent;
+				color: var(--muted);
 			}
 			#device-info {
 				font-size: 0.85rem;
@@ -150,8 +155,8 @@
 				outline: none;
 			}
 			html[data-theme="dark"] nav ul li a {
-				color: var(--primary-dark);
-				background-color: #2a2a2a;
+				color: var(--primary);
+				background-color: var(--toggle-bg);
 			}
 			html[data-theme="dark"] nav ul li a:hover,
 			html[data-theme="dark"] nav ul li a:focus {
@@ -180,7 +185,6 @@
 				color: var(--primary);
 			}
 
-			/* Mobile Styles */
 			@media (max-width: 600px) {
 				body {
 					font-size: 0.95rem;
@@ -193,27 +197,42 @@
 					font-size: 1.125rem;
 				}
 				nav {
-					flex-direction: row;
+					flex-direction: column;
 					align-items: flex-start;
+				}
+				.nav-start {
+					width: 100%;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
 				}
 				.nav-toggle {
 					display: block;
+					font-size: 1.75rem;
 				}
 				nav ul {
-					display: none;
 					flex-direction: column;
 					width: 100%;
-					margin-top: 1rem;
-					gap: 0.5rem;
+					gap: 0.75rem;
+					overflow: hidden;
+					max-height: 0;
+					transition: max-height 0.3s ease;
 				}
 				nav ul.open {
-					display: flex;
+					max-height: 500px;
+				}
+				nav ul li a {
+					display: block;
+					width: 100%;
+					padding: 0.75rem;
+					text-align: left;
 				}
 			}
 		</style>
 	</head>
 	<body>
 		<main>
+			<!-- NAVIGATION -->
 			<nav aria-label="Language navigation">
 				<div class="nav-start">
 					<!-- Hamburger Button -->
@@ -238,7 +257,7 @@
 					</ul>
 				</div>
 
-				<!-- Theme Toggle Button with Icon -->
+				<!-- Theme Toggle -->
 				<button
 					class="theme-toggle"
 					onclick="toggleTheme()"
@@ -247,6 +266,8 @@
 					<span id="theme-icon">🌞</span>
 				</button>
 			</nav>
+
+			<!-- CONTACT HEADER -->
 			<section style="text-align: center; margin-top: 3rem; font-size: 0.95rem">
 				<strong>Ustin M. Vaskin</strong><br />
 				<span>B.B.M · PG.Dip · M.C.S</span><br /><br />
@@ -254,7 +275,7 @@
 				<a href="tel:+447729386491">UK: +44 7729 386491</a><br />
 				<a href="mailto:ustin.vaskin2011@gmail.com"
 					>ustin.vaskin2011@gmail.com</a
-				><br />
+				>
 			</section>
 
 			<h1>Email Disclaimer</h1>
@@ -738,6 +759,8 @@
 
 			<hr />
 			<span id="current-date"></span>
+
+			<!-- FOOTER -->
 			<section>
 				<p id="device-info" style="font-size: 10px">
 					Loading device information...
@@ -745,11 +768,12 @@
 			</section>
 			<footer>
 				© <span id="current-year"></span> Ustin M. Vaskin. All rights reserved.
+				<br /><span id="current-date"></span>
 			</footer>
 		</main>
 
+		<!-- SCRIPTS -->
 		<script>
-			// Set year and date
 			document.getElementById("current-year").textContent =
 				new Date().getFullYear();
 			document.getElementById("current-date").textContent =
@@ -761,16 +785,17 @@
 				const currentTheme = html.getAttribute("data-theme");
 				const newTheme = currentTheme === "dark" ? "light" : "dark";
 				html.setAttribute("data-theme", newTheme);
-
-				const icon = document.getElementById("theme-icon");
-				icon.textContent = newTheme === "dark" ? "🌙" : "🌞";
+				document.getElementById("theme-icon").textContent =
+					newTheme === "dark" ? "🌙" : "🌞";
 			}
 
 			function toggleNav() {
-				document.getElementById("nav-links").classList.toggle("open");
+				const nav = document.getElementById("nav-links");
+				const btn = document.querySelector(".nav-toggle");
+				nav.classList.toggle("open");
+				btn.textContent = nav.classList.contains("open") ? "✕" : "☰";
 			}
 
-			// Apply user's system theme preference
 			if (
 				window.matchMedia &&
 				window.matchMedia("(prefers-color-scheme: dark)").matches
