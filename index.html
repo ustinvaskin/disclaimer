@@ -260,25 +260,6 @@
 					>
 						✕
 					</button>
-					<button
-						id="theme-toggle"
-						aria-label="Toggle theme"
-						style="
-							background: none;
-							border: none;
-							font-size: 1rem;
-							cursor: pointer;
-							color: var(--primary);
-							padding: 0.5rem 1rem;
-							border-radius: var(--radius);
-							background-color: var(--toggle-bg);
-							transition: background 0.3s ease;
-						"
-						onmouseover="this.style.backgroundColor='var(--primary)'; this.style.color='#fff';"
-						onmouseout="this.style.backgroundColor='var(--toggle-bg)'; this.style.color='var(--primary)';"
-					>
-						Dark/ Light
-					</button>
 
 					<ul class="nav-overlay-menu">
 						<li><a href="#disclaimer-en" onclick="toggleNav()">English</a></li>
@@ -289,6 +270,27 @@
 						<li><a href="#disclaimer-zh" onclick="toggleNav()">中文</a></li>
 						<li><a href="#disclaimer-ar" onclick="toggleNav()">العربية</a></li>
 						<li><a href="#disclaimer-es" onclick="toggleNav()">Español</a></li>
+						<li>
+							<button
+								id="theme-toggle"
+								aria-label="Toggle theme"
+								style="
+									background: none;
+									border: none;
+									font-size: 1rem;
+									cursor: pointer;
+									color: var(--primary);
+									padding: 0.5rem 1rem;
+									border-radius: var(--radius);
+									background-color: var(--toggle-bg);
+									transition: background 0.3s ease;
+								"
+								onmouseover="this.style.backgroundColor='var(--primary)'; this.style.color='#fff';"
+								onmouseout="this.style.backgroundColor='var(--toggle-bg)'; this.style.color='var(--primary)';"
+							>
+								Dark/ Light
+							</button>
+						</li>
 					</ul>
 				</div>
 			</nav>
